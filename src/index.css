@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900;
+  }
+}
+
+/* Wikipedia Layout Helpers */
+.wiki-content {
+  @apply text-slate-900 leading-relaxed;
+}
+
+.wiki-content .infobox {
+  @apply float-right ml-6 mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm max-w-[320px] shadow-sm clear-right;
+  width: 100% !important;
+  /* Mobile fallback */
+}
+
+@media (min-width: 640px) {
+  .wiki-content .infobox {
+    width: auto !important;
+  }
+}
+
+.wiki-content .thumb {
+  @apply mb-6 mt-2 clear-both bg-slate-50 border border-slate-200 p-2 rounded-lg;
+  max-width: fit-content;
+}
+
+.wiki-content .tright {
+  @apply float-right ml-6;
+}
+
+.wiki-content .tleft {
+  @apply float-left mr-6;
+}
+
+.wiki-content .thumbinner {
+  @apply text-xs text-slate-500 text-center mt-2;
+}
+
+.wiki-content img {
+  @apply rounded-md shadow-sm mx-auto;
+  height: auto !important;
+  display: block !important;
+}
+
+.wiki-content table {
+  @apply w-full border-collapse mb-6 overflow-x-auto block md:table;
+}
+
+.wiki-content th,
+.wiki-content td {
+  @apply border border-slate-200 p-2 text-sm;
+}
+
+.wiki-content .mw-empty-elt {
+  display: none !important;
+}
+
+/* Fix for float clear */
+.wiki-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Remove prose margins on wiki images to respect our custom layout */
+.wiki-content figure {
+  margin: 0 !important;
+}
